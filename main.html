@@ -84,22 +84,26 @@
     <script>
         const clickable = document.querySelector(".clickable");
         const hero = document.querySelector(".hero");
-        const clickableContainer = document.querySelector("body");
+        const body = document.querySelector("body");
 
         let sheet = document.createElement("div");
         sheet.classList += "bottomsheet";
 
-        clickableContainer.append(sheet);
+        body.append(sheet);
 
         hero.addEventListener("click", () => {
-            console.log("hi")
             if (sheet.classList.contains("hide")) {
                 sheet.classList.value = sheet.classList.value.replace("hide", "");
             }
+            if (body.classList.contains("faded")) {
+                body.classList.value = body.classList.value.replace("faded", "");
+            }
+
         })
 
         clickable.addEventListener("click", () => {
             sheet.classList.toggle('hide');
+            body.classList.toggle('faded')
         })
 
 
