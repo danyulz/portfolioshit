@@ -67,7 +67,7 @@
         const Slist = ["S", "$", "ş", "Ş", "5", "ʃ", "Ŝ", "ŝ", "𐌔"];
         const Hlist = ["Ȟ", "Ƕ", "ћ", "Ḩ", "H", "𐤇", "Ħ", "Ḫ", "ㅎ"];
         const Ilist = ["1", "!", "i", "I", "[", "|", "ì", "Ǐ", "Ї"];
-        const Tlist = ["Ť", "ƫ", "Ṯ", "₮", "✝", "τ'", "Ŧ", "Ț", "T"];
+        const Tlist = ["Ť", "ƫ", "Ṯ", "₮", "τ'", "Ŧ", "Ț", "T", "Ṯ"];
 
         let i = 0;
         const cycleText = () => {
@@ -82,29 +82,35 @@
         setInterval(cycleText, 69);
     </script>
     <script>
-        const clickable = document.querySelector(".clickable");
+        const clickable = document.querySelectorAll(".clickable");
         const hero = document.querySelector(".hero");
         const body = document.querySelector("body");
 
-        let sheet = document.createElement("div");
-        sheet.classList += "bottomsheet";
+        console.log(clickable.length)
 
-        body.append(sheet);
+        for (let i = 0; i < clickable.length; i++) {
+            
+            let sheet = document.createElement("div");
+            sheet.classList += "bottomsheet";
+    
+            body.append(sheet);
+    
+            hero.addEventListener("click", () => {
+                if (sheet.classList.contains("hide")) {
+                    sheet.classList.value = sheet.classList.value.replace("hide", "");
+                }
+                if (body.classList.contains("faded")) {
+                    body.classList.value = body.classList.value.replace("faded", "");
+                }
+    
+            })
+    
+            clickable[i].addEventListener("click", () => {
+                sheet.classList.toggle('hide');
+                body.classList.toggle('faded')
+            })
+        }
 
-        hero.addEventListener("click", () => {
-            if (sheet.classList.contains("hide")) {
-                sheet.classList.value = sheet.classList.value.replace("hide", "");
-            }
-            if (body.classList.contains("faded")) {
-                body.classList.value = body.classList.value.replace("faded", "");
-            }
-
-        })
-
-        clickable.addEventListener("click", () => {
-            sheet.classList.toggle('hide');
-            body.classList.toggle('faded')
-        })
 
 
     </script>
