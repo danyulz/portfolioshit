@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div class="rellax box fade-in" id="box-1">
+        I’m slow and smooth
+    </div>
+    <div class="rellax box fade-in" data-rellax-speed="-3">
+        I’m slow and smooth
+    </div>
+
+    <div class="rellax box fade-in" data-rellax-speed="7">
+        I’m super fast!!
+    </div>
+
+    <div class="rellax box fade-in" data-rellax-speed="-5">
+        I’m extra slow and smooth
+    </div> -->
+    <div class="container fade-in">
+        <div class="rellax box fade-in hero" data-rellax-speed="2">Daniel is building cool <span class="shit">$H!T</span></div>
+        <div class="lastseen">
+            Last seen a month ago, at the University of Southern California.                
+        </div>
+        <div class="rellax box fade-in content">
+            <div class="rellax box fade-in clickable" data-rellax-speed="0">Brandshake</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0">ProteaLabs</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0">Neigh!</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0">Stack Farming</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0">Bagel</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0">SnapChess AR</div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="textSmall">/designer + developer</div>
+        <div class="textSmall" style="margin-top: var(--vertical-spacing-slight);">+9258869500</div>
+        <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;tf=1&amp;source=mailto&amp;to=d@nielhe.com"
+            class="textSmall">d@nielhe.com</a>
+        <div class="footer-links">
+            <div class="links-wrapper">
+                <a href="https://www.instagram.com/dan.yulz/" class="link"><span class="emoji-small">📷</span> IG</a>
+                <a href="https://www.tiktok.com/@dan.yulz" class="link"><span class="emoji-small">🎵</span> TT</a>
+                <a href="https://www.linkedin.com/in/danielheee/" class="link"><span class="emoji-small">💼</span> LI</a>
+            </div>
+            <div href="" class="copyRight bold">© 2022</div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    <script>
+        // Accepts any class name
+        var rellax = new Rellax('.rellax');
+
+        let shit = document.querySelector(".shit");
+
+        const Slist = ["S", "$", "ş", "Ş", "5", "ʃ", "Ŝ", "ŝ", "𐌔"];
+        const Hlist = ["Ȟ", "Ƕ", "ћ", "Ḩ", "H", "𐤇", "Ħ", "Ḫ", "ㅎ"];
+        const Ilist = ["1", "!", "i", "I", "[", "|", "ì", "Ǐ", "Ї"];
+        const Tlist = ["Ť", "ƫ", "Ṯ", "₮", "✝", "τ'", "Ŧ", "Ț", "T"];
+
+        let i = 0;
+        const cycleText = () => {
+            let S = Slist[i];
+            let H = Hlist[i];
+            let I = Ilist[i];
+            let T = Tlist[i];
+            shit.innerHTML = S + H + I + T;
+            i = ++i % 9;
+        };
+        cycleText();
+        setInterval(cycleText, 69);
+    </script>
+    <script>
+        const clickable = document.querySelector(".clickable");
+        const hero = document.querySelector(".hero");
+        const clickableContainer = document.querySelector("body");
+
+        let sheet = document.createElement("div");
+        sheet.classList += "bottomsheet";
+
+        clickableContainer.append(sheet);
+
+        hero.addEventListener("click", () => {
+            console.log("hi")
+            if (sheet.classList.contains("hide")) {
+                sheet.classList.value = sheet.classList.value.replace("hide", "");
+            }
+        })
+
+        clickable.addEventListener("click", () => {
+            sheet.classList.toggle('hide');
+        })
+
+
+    </script>
+</body>
+
+</html>
