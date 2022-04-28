@@ -29,7 +29,7 @@ body {
     flex-direction: column;
     padding-left: var(--horizontal-padding);
     padding-right: var(--horizontal-padding);
-    height: 110vh;
+    height: 115vh;
 }
 
 .hero {
@@ -46,7 +46,7 @@ body {
 
 .lastseen {
     color: var(--main-grey);
-    margin-bottom: var(--vertical-spacing-slight);
+    margin-bottom: var(--vertical-spacing-large);
 }
 
 .clickable {
@@ -67,6 +67,7 @@ body {
     background-color: var(--main-faded);
     transition: all 0.4s ease-in-out;
     border-radius: 10px;
+    box-shadow: 0 0 15px 0 var(--main-grey);
 }
 
 .shit {
