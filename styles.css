@@ -34,7 +34,7 @@ body {
 }
 
 .scrollable {
-    height: max-content;
+    height: 100vh;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
