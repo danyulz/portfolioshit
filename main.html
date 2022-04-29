@@ -30,13 +30,15 @@
         I’m extra slow and smooth
     </div> -->
     <div class="container fade-in">
-        <div class="rellax box fade-in hero" data-rellax-speed="2">Daniel is building cool <span class="shit">$H!T</span></div>
+        <div class="rellax box fade-in hero" data-rellax-speed="2">Daniel is building cool <span
+                class="shit">$H!T</span></div>
         <div class="lastseen">
-            Last seen a month ago, at the University of Southern California.                
+            Last seen a month ago, at the University of Southern California.
         </div>
         <div class="rellax box fade-in content">
             <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Cofounder & CTO">Brandshake</div>
-            <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Venture Data Analyst">ProteaLabs</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Venture Data Analyst">ProteaLabs
+            </div>
             <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Lead Developer">Neigh!</div>
             <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Project Lead">Stack Farming</div>
             <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Developer">Bagel</div>
@@ -52,7 +54,8 @@
             <div class="links-wrapper">
                 <a href="https://www.instagram.com/dan.yulz/" class="link"><span class="emoji-small">📷</span> IG</a>
                 <a href="https://www.tiktok.com/@dan.yulz" class="link"><span class="emoji-small">🎵</span> TT</a>
-                <a href="https://www.linkedin.com/in/danielheee/" class="link"><span class="emoji-small">💼</span> LI</a>
+                <a href="https://www.linkedin.com/in/danielheee/" class="link"><span class="emoji-small">💼</span>
+                    LI</a>
             </div>
             <div href="" class="copyRight bold">© 2022</div>
         </div>
@@ -84,50 +87,57 @@
     <script>
         const clickable = document.querySelectorAll(".clickable");
         const hero = document.querySelector(".hero");
+        const lastseen = document.querySelector(".lastseen");
+
         const body = document.querySelector("body");
         const container = document.querySelector(".container");
 
         console.log(clickable.length)
 
         for (let i = 0; i < clickable.length; i++) {
-            
+
+            const addCloseSheetHandler = (node) => {
+                node.addEventListener("click", () => {
+                    if (sheet.classList.contains("hide")) {
+                        sheet.classList.value = sheet.classList.value.replace("hide", "");
+                    }
+                    if (container.classList.contains("faded")) {
+                        container.classList.value = container.classList.value.replace("faded", "");
+                    }
+    
+                })
+            }
+
             let sheet = document.createElement("div");
             sheet.classList += "bottomsheet";
 
             let sheetHeader = document.createElement("div");
             sheetHeader.style.display = "flex"
             sheetHeader.style.justifyContent = "space-between";
-
+            
             let projectName = document.createElement("div");
             projectName.innerHTML = clickable[i].innerHTML;
             projectName.classList += "clickable"
-
+            
             let projectPosition = document.createElement("div");
             projectPosition.innerHTML = " " + clickable[i].attributes.position.value;
             projectPosition.classList += "headerText faded"
             projectPosition.style.marginLeft = "5px";
 
-            sheetHeader.append(projectName);
-            sheetHeader.append(projectPosition);
-
-            sheet.append(sheetHeader);
-    
-            body.append(sheet);
-    
-            hero.addEventListener("click", () => {
-                if (sheet.classList.contains("hide")) {
-                    sheet.classList.value = sheet.classList.value.replace("hide", "");
-                }
-                if (container.classList.contains("faded")) {
-                    container.classList.value = container.classList.value.replace("faded", "");
-                }
-    
-            })
-    
             clickable[i].addEventListener("click", () => {
                 sheet.classList.toggle('hide');
                 container.classList.toggle('faded')
             })
+
+            addCloseSheetHandler(hero);
+            addCloseSheetHandler(lastseen);
+
+            sheetHeader.append(projectName);
+            sheetHeader.append(projectPosition);
+
+            sheet.append(sheetHeader);
+            
+            body.append(sheet);
         }
 
 
