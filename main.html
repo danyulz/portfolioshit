@@ -35,12 +35,12 @@
             Last seen a month ago, at the University of Southern California.                
         </div>
         <div class="rellax box fade-in content">
-            <div class="rellax box fade-in clickable" data-rellax-speed="0">Brandshake</div>
-            <div class="rellax box fade-in clickable" data-rellax-speed="0">ProteaLabs</div>
-            <div class="rellax box fade-in clickable" data-rellax-speed="0">Neigh!</div>
-            <div class="rellax box fade-in clickable" data-rellax-speed="0">Stack Farming</div>
-            <div class="rellax box fade-in clickable" data-rellax-speed="0">Bagel</div>
-            <div class="rellax box fade-in clickable" data-rellax-speed="0">SnapChess AR</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Cofounder & CTO">Brandshake</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Venture Data Analyst">ProteaLabs</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Lead Developer">Neigh!</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Project Lead">Stack Farming</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Developer">Bagel</div>
+            <div class="rellax box fade-in clickable" data-rellax-speed="0" position="Developer">SnapChess AR</div>
         </div>
     </div>
     <div class="footer fade-in">
@@ -85,6 +85,7 @@
         const clickable = document.querySelectorAll(".clickable");
         const hero = document.querySelector(".hero");
         const body = document.querySelector("body");
+        const container = document.querySelector(".container");
 
         console.log(clickable.length)
 
@@ -92,6 +93,24 @@
             
             let sheet = document.createElement("div");
             sheet.classList += "bottomsheet";
+
+            let sheetHeader = document.createElement("div");
+            sheetHeader.style.display = "flex"
+            sheetHeader.style.justifyContent = "space-between";
+
+            let projectName = document.createElement("div");
+            projectName.innerHTML = clickable[i].innerHTML;
+            projectName.classList += "clickable"
+
+            let projectPosition = document.createElement("div");
+            projectPosition.innerHTML = " " + clickable[i].attributes.position.value;
+            projectPosition.classList += "headerText faded"
+            projectPosition.style.marginLeft = "5px";
+
+            sheetHeader.append(projectName);
+            sheetHeader.append(projectPosition);
+
+            sheet.append(sheetHeader);
     
             body.append(sheet);
     
@@ -99,15 +118,15 @@
                 if (sheet.classList.contains("hide")) {
                     sheet.classList.value = sheet.classList.value.replace("hide", "");
                 }
-                if (body.classList.contains("faded")) {
-                    body.classList.value = body.classList.value.replace("faded", "");
+                if (container.classList.contains("faded")) {
+                    container.classList.value = container.classList.value.replace("faded", "");
                 }
     
             })
     
             clickable[i].addEventListener("click", () => {
                 sheet.classList.toggle('hide');
-                body.classList.toggle('faded')
+                container.classList.toggle('faded')
             })
         }
 
