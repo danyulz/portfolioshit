@@ -17,7 +17,12 @@
     margin: 0;
 }
 
-body::-webkit-scrollbar {
+html,
+body {
+    overscroll-behavior-y: none;
+}
+
+body::-webkit-scrollbar, .scrollable::-webkit-scrollbar {
     display: none;
 }
 
@@ -26,6 +31,12 @@ body {
     flex-direction: column;
     font-family: 'DM Sans';
     height: calc(100% + 193px);
+}
+
+.scrollable {
+    height: max-content;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container {
