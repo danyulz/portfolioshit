@@ -2,7 +2,7 @@
     --main-black: rgb(17, 16, 16);
     --main-faded: rgba(250, 250, 250, 0.918);
     --main-grey: rgb(161, 161, 161);
-    --horizontal-padding: 3vw;
+    --horizontal-padding: min(3vw, 20px);
     --vertical-spacing-larger: 3vh;
     --vertical-spacing-large: 2vh;
     --vertical-spacing-normal: 1vh;
@@ -15,6 +15,10 @@
 * {
     padding: 0;
     margin: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -63,7 +67,7 @@ body {
 .bottomsheet {
     box-sizing: border-box;
     position: fixed;
-    bottom: -30px;
+    bottom: -10vh;
     width: 100vw;
     height: 0;
     background-color: var(--main-faded);
