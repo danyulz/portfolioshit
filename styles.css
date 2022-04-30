@@ -114,14 +114,15 @@ body {
     transition: all 0.4s ease-in-out;
     border-radius: 10px;
     opacity: 1;
-    overflow-y: auto;}
+    overflow-y: auto;
+}
 
 .bottomsheet-container {
     display: flex;
     flex-direction: column;
     padding: var(--horizontal-padding);
     height: 200vh;
-    width: 100vh;
+    width: min(100vw - 40px, 100vw - 3vw);
 }
 
 .sheet-header {
@@ -216,22 +217,23 @@ body {
 }
 
 @-webkit-keyframes bounceIn {
-	0% {
-		opacity: 0;
-		-webkit-transform: scale(.3);
-	}
-	50% {
-		-webkit-transform: scale(1.05);
-	}
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+    }
 
-	70% {
-		-webkit-transform: scale(.9);
-	}
+    50% {
+        -webkit-transform: scale(1.05);
+    }
 
-	100% {
-		opacity: 1;
-		-webkit-transform: scale(1);
-	}
+    70% {
+        -webkit-transform: scale(.9);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
 }
 
 a {
@@ -248,38 +250,6 @@ a {
     /* Gecko Browsers */
 }
 
-.animatable {
-  
-    /* initially hide animatable objects */
-    visibility: hidden;
-    
-    /* initially pause animatable objects their animations */
-    -webkit-animation-play-state: paused;   
-    -moz-animation-play-state: paused;     
-    -ms-animation-play-state: paused;
-    -o-animation-play-state: paused;   
-    animation-play-state: paused; 
-  }
-  
-  /* show objects being animated */
-  .animated {
-    visibility: visible;
-    
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    -ms-animation-fill-mode: both;
-    -o-animation-fill-mode: both;
-    animation-fill-mode: both;
-    
-    -webkit-animation-duration: 1s;
-    -moz-animation-duration: 1s;
-    -ms-animation-duration: 1s;
-    -o-animation-duration: 1s;
-    animation-duration: 1s;
-  
-    -webkit-animation-play-state: running;
-    -moz-animation-play-state: running;
-    -ms-animation-play-state: running;
-    -o-animation-play-state: running;
-    animation-play-state: running;
-  }
+::-webkit-scrollbar {
+    display: none;
+}
