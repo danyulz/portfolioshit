@@ -1,7 +1,9 @@
 :root {
     --main-black: rgb(17, 16, 16);
     --main-faded: rgba(250, 250, 250, 0.918);
+    --main-lightgrey: rgb(197, 197, 197);
     --main-grey: rgb(161, 161, 161);
+    --main-darkgrey: rgb(104, 104, 104);
     --horizontal-padding: min(3vw, 20px);
     --vertical-spacing-larger: 3vh;
     --vertical-spacing-large: 2vh;
@@ -71,6 +73,35 @@ body {
     width: max-content;
     border-color: var(--main-grey);
     border-style: solid;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+
+.clickable:hover {
+    opacity: 0.5;
+    font-size: 1.25rem;
+}
+
+.clickable-data {
+    margin-top: var(--vertical-spacing-normal);
+    width: min(100vw - 20px, 100vw - 3vw);
+}
+
+.info-wrapper {
+    margin-top: var(--vertical-spacing-large);
+}
+
+.info-item {
+    display: flex;
+    margin: 0;
+    margin-top: var(--vertical-spacing-slight);
+    font-size: var(--font-size-normal);
+    color: var(--main-grey);
+}
+
+.info-title {
+    color: var(--main-lightgrey);
+    margin-right: var(--horizontal-padding);
 }
 
 .bottomsheet {
@@ -83,7 +114,21 @@ body {
     transition: all 0.4s ease-in-out;
     border-radius: 10px;
     opacity: 1;
+    overflow-y: auto;}
+
+.bottomsheet-container {
+    display: flex;
+    flex-direction: column;
     padding: var(--horizontal-padding);
+    height: 200vh;
+    width: 100vh;
+}
+
+.sheet-header {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: min(100vw - 20px, 100vw - 3vw);
 }
 
 .shit {
@@ -151,7 +196,7 @@ body {
 
 .headerText {
     font-size: var(--font-size-larger);
-    color: var(--main-black);
+    color: var(--main-grey);
 }
 
 @keyframes fadeInAnimation {
@@ -170,6 +215,25 @@ body {
     }
 }
 
+@-webkit-keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.3);
+	}
+	50% {
+		-webkit-transform: scale(1.05);
+	}
+
+	70% {
+		-webkit-transform: scale(.9);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+	}
+}
+
 a {
     color: inherit;
 }
@@ -183,3 +247,39 @@ a {
     background: #ffb7b7;
     /* Gecko Browsers */
 }
+
+.animatable {
+  
+    /* initially hide animatable objects */
+    visibility: hidden;
+    
+    /* initially pause animatable objects their animations */
+    -webkit-animation-play-state: paused;   
+    -moz-animation-play-state: paused;     
+    -ms-animation-play-state: paused;
+    -o-animation-play-state: paused;   
+    animation-play-state: paused; 
+  }
+  
+  /* show objects being animated */
+  .animated {
+    visibility: visible;
+    
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+  
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    -ms-animation-play-state: running;
+    -o-animation-play-state: running;
+    animation-play-state: running;
+  }

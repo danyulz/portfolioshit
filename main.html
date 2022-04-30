@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,21 +26,86 @@
             <div class="rellax box" data-rellax-speed="1.5">cool&nbsp;</div>
             <div class="shit rellax box" data-rellax-speed="2">$H!T</div>
         </div>
-        <div class="lastseen">
+        <div class="lastseen" data-aos="fade-right">
             Last seen a month ago, at the University of Southern California ✌️.
         </div>
         <div class="fade-in content">
-            <div class="rellax box fade-in clickable" data-rellax-speed="-1" position="Cofounder & CTO">Brandshake
+            <div data-idx="1" class="rellax fade-in clickable" data-rellax-speed="-1" position="Cofounder & CTO"
+                roles="Frontend Engineering Product UI/UX ">Brandshake
+            </div>
+            <div class="clickable-data" id="data-0">
+                <div class="info-wrapper">
+                    <div class="info-item">
+                        <div class="info-title">Location</div>
+                        <div class="info-value">Los Angeles</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-title">Date</div>
+                        <div class="info-value">January 2022 - Present</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-title">Roles</div>
+                        <div class="info-value">Frontend Dev.</div>
+                        <div class="info-value">Product Design</div>
+                        <div class="info-value">UI/UX</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-title">Areas</div>
+                        <div class="info-value">Branding</div>
+                        <div class="info-value">Project Management</div>
+                        <div class="info-value">Everything</div>
+                    </div>
+                </div>
             </div>
             <div class="rellax box fade-in clickable" data-rellax-speed="-1.25" position="EA to James Bottom, CEO">
                 ProteaLabs
             </div>
+            <div class="clickable-data" id="data-1">
+                <div class="info-wrapper">
+                    <div class="info-item">Location</div>
+                    <div class="info-item">Date</div>
+                    <div class="info-item">Roles</div>
+                    <div class="info-item">Areas</div>
+                </div>
+            </div>
             <div class="rellax box fade-in clickable" data-rellax-speed="-1.5" position="Lead Developer">Neigh!
+            </div>
+            <div class="clickable-data" id="data-2">
+                <div class="info-wrapper">
+                    <div class="info-item">Location</div>
+                    <div class="info-item">Date</div>
+                    <div class="info-item">Roles</div>
+                    <div class="info-item">Areas</div>
+                </div>
             </div>
             <div class="rellax box fade-in clickable" data-rellax-speed="-1.75" position="Project Lead">Stack
                 Farming</div>
+            <div class="clickable-data" id="data-3">
+                <div class="info-wrapper">
+                    <div class="info-item">Location</div>
+                    <div class="info-item">Date</div>
+                    <div class="info-item">Roles</div>
+                    <div class="info-item">Areas</div>
+                </div>
+            </div>
             <div class="rellax box fade-in clickable" data-rellax-speed="-2.0" position="Developer">Bagel</div>
+            <div class="clickable-data" id="data-4">
+                <div class="info-wrapper">
+                    <div class="info-item">Location</div>
+                    <div class="info-item">Date</div>
+                    <div class="info-item">Roles</div>
+                    <div class="info-item">Areas</div>
+                </div>
+            </div>
             <div class="rellax box fade-in clickable" data-rellax-speed="-2.25" position="Developer">SnapChess AR
+            </div>
+            <div class="clickable-data" id="data-5">
+                <div class="info-wrapper">
+                    <div class="info-item">Location</div>
+                    <div class="info-item">Date</div>
+                    <div class="info-item">Roles</div>
+                    <div class="info-item">Areas</div>
+                </div>
             </div>
         </div>
     </div>
@@ -57,20 +125,6 @@
             <div href="" class="copyRight bold">© 2022</div>
         </div>
     </div>
-    <!-- <div class="rellax box fade-in" id="box-1">
-        I’m slow and smooth
-    </div>
-    <div class="rellax box fade-in" data-rellax-speed="-3">
-        I’m slow and smooth
-    </div>
-
-    <div class="rellax box fade-in" data-rellax-speed="7">
-        I’m super fast!!
-    </div>
-
-    <div class="rellax box fade-in" data-rellax-speed="-5">
-        I’m extra slow and smooth
-    </div> -->
 
     <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
     <script>
@@ -116,16 +170,17 @@
                     if (container.classList.contains("faded")) {
                         container.classList.value = container.classList.value.replace("faded", "");
                     }
-
                 })
             }
 
             let sheet = document.createElement("div");
             sheet.classList += "bottomsheet";
 
+            let sheetContainer = document.createElement("div");
+            sheetContainer.classList += "bottomsheet-container";
+
             let sheetHeader = document.createElement("div");
-            sheetHeader.style.display = "flex"
-            sheetHeader.style.justifyContent = "space-between";
+            sheetHeader.classList += "sheet-header";
 
             let projectName = document.createElement("div");
             projectName.innerHTML = clickable[i].innerHTML;
@@ -133,12 +188,12 @@
 
             let projectPosition = document.createElement("div");
             projectPosition.innerHTML = " " + clickable[i].attributes.position.value;
-            projectPosition.classList += "headerText faded"
+            projectPosition.classList += "headerText"
             projectPosition.style.marginLeft = "5px";
 
             clickable[i].addEventListener("click", () => {
                 sheet.classList.toggle('hide');
-                container.classList.toggle('faded')
+                container.classList.toggle('faded');
             })
 
             addCloseSheetHandler(hero);
@@ -147,13 +202,69 @@
             sheetHeader.append(projectName);
             sheetHeader.append(projectPosition);
 
-            sheet.append(sheetHeader);
+            sheetContainer.append(sheetHeader);
+
+            let sheetContent = document.getElementById("data-" + i);
+            let contentCopy = sheetContent.cloneNode(true);
+
+            sheetContent.remove()
+
+            sheetContainer.append(contentCopy)
+
+            sheet.append(sheetContainer);
 
             body.append(sheet);
         }
 
 
 
+    </script>
+    <script>
+        // left: 37, up: 38, right: 39, down: 40,
+        // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+        var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+
+        function preventDefault(e) {
+            e.preventDefault();
+        }
+
+        function preventDefaultForScrollKeys(e) {
+            if (keys[e.keyCode]) {
+                preventDefault(e);
+                return false;
+            }
+        }
+
+        // modern Chrome requires { passive: false } when adding event
+        var supportsPassive = false;
+        try {
+            window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+                get: function () { supportsPassive = true; }
+            }));
+        } catch (e) { }
+
+        var wheelOpt = supportsPassive ? { passive: false } : false;
+        var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+        // call this to Disable
+        function disableScroll() {
+            window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+            window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+            window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+            window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+        }
+
+        // call this to Enable
+        function enableScroll() {
+            window.removeEventListener('DOMMouseScroll', preventDefault, false);
+            window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+            window.removeEventListener('touchmove', preventDefault, wheelOpt);
+            window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+        }
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
     </script>
 </body>
 
