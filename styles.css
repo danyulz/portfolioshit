@@ -73,13 +73,12 @@ body {
     width: max-content;
     border-color: var(--main-grey);
     border-style: solid;
-    /* opacity: 1;
-    transition: all 0.2s ease-in-out; */
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out
 }
 
 .clickable:hover {
     opacity: 0.5;
-    font-size: 1.25rem;
 }
 
 .clickable-data {
