@@ -1,0 +1,13 @@
+.images-wrapper {
+    margin-top: var(--vertical-spacing-larger);
+    display: flex;
+    width: min(100vw - 20px, 100vw - 3vw);
+    overflow-x: auto;
+    align-self: center;
+}
+
+.brandshake-img {
+    width: min(46vw, 170px);
+    border-radius: 10px;
+    margin-right: min(var(--horizontal-padding), 15px);
+}

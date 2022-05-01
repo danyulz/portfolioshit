@@ -3,7 +3,7 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="brandshake-styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,24 +37,39 @@
                 <div class="info-wrapper">
                     <div class="info-item">
                         <div class="info-title">Location</div>
-                        <div class="info-value">Los Angeles</div>
+                        <div class="values-wrapper">
+                            <div class="info-value hoverable">Los Angeles</div>
+                        </div>
                     </div>
                     <div class="info-item">
                         <div class="info-title">Date</div>
-                        <div class="info-value">January 2022 - Present</div>
+                        <div class="values-wrapper">
+                            <div class="info-value hoverable">January 2022 - Present</div>
+                        </div>
                     </div>
                     <div class="info-item">
                         <div class="info-title">Roles</div>
-                        <div class="info-value">Frontend Dev.</div>
-                        <div class="info-value">Product Design</div>
-                        <div class="info-value">UI/UX</div>
+                        <div class="values-wrapper">
+                            <div class="info-value hoverable">Frontend Dev.</div>
+                            <div class="info-value hoverable">Product Design</div>
+                            <div class="info-value hoverable">UI/UX</div>
+                        </div>
                     </div>
                     <div class="info-item">
                         <div class="info-title">Areas</div>
-                        <div class="info-value">Branding</div>
-                        <div class="info-value">Project Management</div>
-                        <div class="info-value">Everything</div>
+                        <div class="values-wrapper">
+                            <div class="info-value hoverable">Branding</div>
+                            <div class="info-value hoverable">Project Management</div>
+                            <div class="info-value hoverable">Everything</div>
+                        </div>
                     </div>
+                </div>
+                <div class="images-wrapper">
+                    <img class="brandshake-img" src="./res/imgs/[1242x2688] 1.png" alt="">
+                    <img class="brandshake-img" src="./res/imgs/[1242x2688] 2.png" alt="">
+                    <img class="brandshake-img" src="./res/imgs/[1242x2688] 3.png" alt="">
+                    <img class="brandshake-img" src="./res/imgs/[1242x2688] 4.png" alt="">
+                    <img class="brandshake-img" src="./res/imgs/[1242x2688] 5.png" alt="">
                 </div>
             </div>
             <div class="rellax box fade-in clickable" data-rellax-speed="-1.25" position="EA to James Bottom, CEO">
@@ -127,7 +142,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
-    <script>
+    <script> //shit animation
         // Accepts any class name
         var rellax = new Rellax('.rellax');
 
@@ -215,9 +230,15 @@
 
             body.append(sheet);
         }
+    </script>
+    <script> //add &nbsp; before and after each innerHTML of item-value to add horizontal spacing, normal padding breaks alignment
+        let infoValues = document.querySelectorAll(".info-value");
 
+        console.log(infoValues)
 
-
+        for (item of infoValues) {
+            item.innerHTML = "&nbsp;" + item.innerHTML + "&nbsp;";
+        }
     </script>
     <script>
         // left: 37, up: 38, right: 39, down: 40,

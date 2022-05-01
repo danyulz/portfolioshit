@@ -1,6 +1,7 @@
 :root {
     --main-black: rgb(17, 16, 16);
     --main-faded: rgba(250, 250, 250, 0.918);
+    --main-light-lightgrey: rgb(240, 240, 240);
     --main-lightgrey: rgb(197, 197, 197);
     --main-grey: rgb(161, 161, 161);
     --main-darkgrey: rgb(104, 104, 104);
@@ -12,6 +13,12 @@
     --font-size-header: 1.62rem;
     --font-size-normal: 1rem;
     --font-size-larger: 1.2rem;
+
+    --item-title-width: 80px;
+}
+
+html {
+    cursor: url('./res/cursor-circle.png'), auto;	
 }
 
 * {
@@ -99,8 +106,23 @@ body {
 }
 
 .info-title {
+    position: absolute;
     color: var(--main-lightgrey);
-    margin-right: var(--horizontal-padding);
+    padding: 2px;
+}
+
+.values-wrapper {
+    margin-left: var(--item-title-width);
+    flex-wrap: wrap;
+    display: flex
+}
+
+.info-value {
+    background-color: var(--main-light-lightgrey);
+    padding-top: 2px;
+    border-radius: 5px;
+    margin-right: 4px;
+    margin-bottom: 4px; 
 }
 
 .bottomsheet {
@@ -121,7 +143,7 @@ body {
     flex-direction: column;
     padding: var(--horizontal-padding);
     height: 200vh;
-    width: min(100vw - 40px, 100vw - 3vw);
+    width: min(100vw - 20px, 100vw - 3vw);
 }
 
 .sheet-header {
@@ -197,6 +219,16 @@ body {
 .headerText {
     font-size: var(--font-size-larger);
     color: var(--main-grey);
+}
+
+.hoverable {
+    transition-delay: 0.2s;
+    transition: all 0.2s ease-in;
+}
+
+.hoverable:hover {
+    margin-left: 5px;
+    margin-right: 10px;
 }
 
 @keyframes fadeInAnimation {
