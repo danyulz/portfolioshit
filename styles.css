@@ -151,9 +151,9 @@ body {
 
 .bottomsheet-container {
     display: flex;
+    margin-bottom: 15vh;
     flex-direction: column;
     padding: var(--horizontal-padding);
-    height: 200vh;
     width: var(--sheet-width)
 }
 
@@ -367,6 +367,10 @@ li {
 }
 #brandshake-button {
     background-color: rgb(43, 224, 134);
+    color: white;
+}
+#stack-button {
+    background-color: rgb(240, 213, 36);
     color: white;
 }
 
