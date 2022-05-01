@@ -344,6 +344,7 @@ a {
 li {
     color: var(--main-grey);
     list-style-type: none;
+    line-height: 1.7;
 }
 
 .button {
@@ -362,6 +363,10 @@ li {
 
 #protea-button {
     background-color: rgb(167, 28, 28);
+    color: white;
+}
+#brandshake-button {
+    background-color: rgb(43, 224, 134);
     color: white;
 }
 
