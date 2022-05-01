@@ -136,6 +136,7 @@ body {
     border-radius: 10px;
     opacity: 1;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .bottomsheet-container {
