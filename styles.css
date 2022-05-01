@@ -14,6 +14,8 @@
     --font-size-normal: 1rem;
     --font-size-larger: 1.2rem;
 
+    --sheet-width: 100vw - 4vw;
+
     --item-title-width: 80px;
 }
 
@@ -55,6 +57,11 @@ body {
     transition: opacity 0.3s ease-in;
 }
 
+.clickable-data > * {
+    margin-top: var(--vertical-spacing-normal);
+    margin-bottom: var(--vertical-spacing-normal);
+}
+
 .hero {
     padding-top: 30vh;
     padding-bottom: 20vh;
@@ -94,11 +101,10 @@ body {
 
 .clickable-data {
     margin-top: var(--vertical-spacing-normal);
-    width: min(100vw - 20px, 100vw - 3vw);
 }
 
 .info-wrapper {
-    margin-top: var(--vertical-spacing-large);
+    margin-bottom: var(--vertical-spacing-larger);
 }
 
 .info-item {
@@ -148,14 +154,20 @@ body {
     flex-direction: column;
     padding: var(--horizontal-padding);
     height: 200vh;
-    width: min(100vw - 20px, 100vw - 3vw);
+    width: var(--sheet-width)
 }
+
+@media only screen and (min-width: 1079px) {
+    .bottomsheet-container {
+        padding: 10vw;
+    }
+  }
 
 .sheet-header {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    width: min(100vw - 20px, 100vw - 3vw);
+    margin-bottom: var(--vertical-spacing-larger);
 }
 
 .shit {
@@ -166,6 +178,32 @@ body {
 
 .hide {
     height: 84vh;
+}
+
+.info-logo {
+    width: min(20vw, 100px);
+}
+
+.project-header {
+    color: var(--main-black);
+    font-size: var(--font-size-larger);
+    font-weight: 500;
+    border-width: 0;
+    border-left-width: 2px;
+    border-style: solid;
+    padding-left: var(--horizontal-padding);
+}
+
+.images-wrapper {
+    padding: 10px;
+}
+
+.project-image-wide {
+    width: min(100%, 500px);
+    border-radius: 10px;
+}
+
+#protea-img-1 {
 }
 
 .footer {
@@ -236,6 +274,10 @@ body {
     margin-right: 10px;
 }
 
+.box-shadow {
+    box-shadow: 0 0 5px  rgb(203, 203, 203);
+}
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -288,4 +330,45 @@ a {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.brag-text {
+    margin-top: var(--vertical-spacing-larger);
+    margin-bottom: var(--vertical-spacing-normal);
+}
+
+li {
+    color: var(--main-grey);
+    list-style-type: none;
+}
+
+.button {
+    margin-top: var(--vertical-spacing-larger);
+    font-size: var(--font-size-larger);
+    line-height: 3rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.2s ease-in;
+}
+
+.button:hover {
+    transform: scale(1.03);
+}
+
+#protea-button {
+    background-color: rgb(167, 28, 28);
+    color: white;
+}
+
+.jiggly {
+    transition: transform 0.2s ease-in;
+}
+
+.jiggly:hover {
+    transform: scale(1.03);
 }

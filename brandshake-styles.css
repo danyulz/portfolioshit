@@ -1,5 +1,4 @@
 .images-wrapper {
-    margin-top: 5vh;
     display: flex;
     width: min(100vw - 20px, 100vw - 3vw);
     overflow-x: auto;
