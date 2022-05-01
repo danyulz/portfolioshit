@@ -186,7 +186,7 @@ body {
 
 .project-header {
     color: var(--main-black);
-    font-size: var(--font-size-larger);
+    font-size: var(--font-size-normal);
     font-weight: 500;
     border-width: 0;
     border-left-width: 2px;
