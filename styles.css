@@ -72,6 +72,10 @@ body {
     margin-bottom: var(--vertical-spacing-large);
 }
 
+.loadcover {
+    background: red;
+}
+
 .clickable {
     font-weight: 500;
     font-size: var(--font-size-larger);
