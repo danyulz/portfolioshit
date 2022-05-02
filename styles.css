@@ -374,6 +374,7 @@ a {
 .brag-text {
     margin-top: var(--vertical-spacing-larger);
     margin-bottom: var(--vertical-spacing-normal);
+    color: var(--main-black);
 }
 
 li {
