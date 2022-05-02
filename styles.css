@@ -435,7 +435,6 @@ li {
     transform: scale(1.03);
 }
 
-/*Simple css to style it like a toggle switch*/
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
