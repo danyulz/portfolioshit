@@ -280,6 +280,9 @@
                     <li>- Fully encrypted user-to-user DMs!</li>
                     <li>- Very clearly a tiktok/instagram clone</li>
                 </ul>
+                <a href="https://apps.apple.com/us/app/neigh/id1599915617" target="_blank" class="project-link">
+                    <div class="button" id="neigh-button">Try Neigh!</div>
+                </a>
             </div>
 
             <div class="rellax box fade-in clickable" data-rellax-speed="-2.0" position="Developer">Bagel</div>
@@ -407,10 +410,22 @@
         </div>
     </div>
     <div class="footer fade-in">
-        <div class="textSmall">/designer + developer</div>
-        <div class="textSmall" style="margin-top: var(--vertical-spacing-slight);">+9258869500</div>
-        <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;tf=1&amp;source=mailto&amp;to=d@nielhe.com"
-            target="_blank" class="textSmall">d@nielhe.com</a>
+        <div class="footer-top-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="footer-left">
+                <div class="textSmall">/designer + developer</div>
+                <div class="textSmall" style="margin-top: var(--vertical-spacing-slight);">+9258869500</div>
+                <a href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;tf=1&amp;source=mailto&amp;to=d@nielhe.com"
+                    target="_blank" class="textSmall">d@nielhe.com</a>
+            </div>
+            <div class="footer-right">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
         <div class="footer-links">
             <div class="links-wrapper">
                 <a href="https://www.instagram.com/dan.yulz/" class="link" target="_blank"><span
@@ -588,6 +603,44 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+            else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark'); //add this
+            }
+            else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light'); //add this
+            }
+        }
+
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+
+
     </script>
 </body>
 
