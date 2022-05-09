@@ -739,7 +739,7 @@
                         tempObj.vely = -tempObj.vely;
                     }
 
-                    if (tempObj.x > screen.width || tempObj.x < 0) {
+                    if (tempObj.x > screen.width || tempObj.x < -parseInt(tempObj.width.replace("px", ""))) {
                         tempObj.bounces++;
                         tempObj.velx = -tempObj.velx;
                     }
