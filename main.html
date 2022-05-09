@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <div class="ball-wrapper"></div>
     <div class="container fade-in">
         <div class="rellax box fade-in hero" style="display: flex; align-items: center;" data-rellax-speed="2">
             <div class="rellax box" data-rellax-speed="0">Daniel&nbsp;</div>
@@ -639,8 +640,157 @@
             }
         }
 
+    </script>
+    <script>
+        const screencontainer = document.querySelector(".ball-wrapper")
+
+        const entities = new Array;
+        const entitiesData = new Array;
+        const entitiesToTick = new Array;
+
+        const GCONST = 1;
+
+        let entityCount = 0;
 
 
+        class entity {
+
+            init() {
+                let entity = document.createElement("div");
+                entity.classList = "entity";
+
+                entity.style.width = this.width;
+                entity.style.height = this.height;
+                entity.style.top = this.y + "px";
+                entity.style.left = this.x + "px";
+                entity.style.backgroundColor = this.color;
+
+                screencontainer.append(entity);
+                entities.push(entity);
+            }
+
+            constructor({ width, height, x, y, velx, vely, accx, accy, mass, gravity, color }) {
+
+                this.width = width == null ? "10px" : width + "px";
+                this.height = height == null ? "10px" : height + "px";
+                this.mass = mass == null ? 1 : mass;
+                this.x = x == null ? 0 : x;
+                this.y = y == null ? 0 : y;
+                this.velx = velx == null ? 0 : velx;
+                this.vely = vely == null ? 0 : vely;
+                this.accx = accx == null ? 0 : accx;
+                this.accy = accy == null ? 0 : accy;
+                this.gravity = gravity == null ? true : gravity;
+                this.color = color == null ? "" : color;
+                this.id = entityCount++;
+                this.bounces = 0;
+
+                this.init();
+                entitiesData.push(this);
+            }
+
+            getCenter() {
+                return { x: (this.x + this.width) / 2, y: (this.y + this.height) / 2 };
+            }
+
+        }
+
+        for (let i = 0; i < 50; i++) {
+            let randWidth = Math.random() * 100;
+            let randX = Math.random() * screen.width;
+            let randY = Math.random() * 10;
+            let randVelX = Math.random() * 20 - 20;
+            let randAccY = Math.random() + 0.2;
+            let randColor = random_rgba();
+
+            let item = new entity({ width: randWidth, height: randWidth, x: randX, y: randY, velx: randVelX, accy: randAccY, gravity: true, color: randColor });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code == "Space") {
+                entitiesData[0].vely = -4;
+                entitiesData[0].accy = 0.2;
+            }
+        });
+
+        for (entity of entitiesData) {
+            if (entity.gravity == true) {
+                entitiesToTick.push(entity)
+            }
+        }
+
+        var gametick = window.setInterval(function () {
+
+            for (let i = 0; i < entitiesToTick.length; i++) {
+
+                let tempNode = entities[entitiesToTick[i].id];
+                let tempObj = entitiesToTick[i];
+
+                let newPos = getNewPosition(tempObj);
+
+                if (tempObj.bounces == 2) {
+                    tempNode.remove();
+                    entitiesToTick.splice(i, 1);
+                } else {
+
+                    if (tempObj.y > screencontainer.offsetHeight || tempObj.y < 0) {
+                        tempObj.bounces++;
+                        tempObj.vely = -tempObj.vely;
+                    }
+
+                    if (tempObj.x > screen.width || tempObj.x < 0) {
+                        tempObj.velx = -tempObj.velx;
+                    }
+                    tempNode.style.top = newPos.y + "px";
+                    tempNode.style.left = newPos.x + "px";
+                }
+
+            }
+
+        }, 19);
+
+        function random_rgba() {
+            var o = Math.round, r = Math.random, s = 255;
+            return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
+        }
+
+        const getNewPosition = (e) => {
+
+            const gravityPosition = getGravityPosition(e);
+
+            // e.accx += gravityPosition.x;
+            // e.accy += gravityPosition.y;
+            e.velx += e.accx;
+            e.vely += e.accy;
+            e.x += e.velx;
+            e.y += e.vely;
+
+            return { x: e.x, y: e.y };
+        }
+
+        function getDistance(e1, e2) {
+            return (Math.sqrt(Math.pow((e1.x - e2.x), 2) - Math.pow((e1.y - e2.y), 2)));
+        }
+
+        function getAngleBetween(e1, e2) {
+
+        }
+
+        function getGravityPosition(e) {
+
+            let posx = e.x;
+            let posy = e.y;
+
+            for (entity of entitiesData) {
+
+            }
+
+            return ({ x: posx, y: posy });
+        }
+
+        function hasCollision(e1, e2) {
+            return (e1.getCenter().x)
+        }
     </script>
 </body>
 
