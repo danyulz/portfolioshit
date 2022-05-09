@@ -97,6 +97,7 @@ body {
     opacity: 1;
     overflow-y: auto;
     overflow-x: hidden;
+    animation: none;
 }
 
 .hero {
@@ -184,6 +185,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 10;
+    animation: fadeInAnimation 3s ease 1;
 }
 
 .bottomsheet-container {

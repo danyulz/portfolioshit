@@ -548,7 +548,7 @@
             }
         }
 
-        const myTimeout = setTimeout(closeSheets, 1200);
+        const myTimeout = setTimeout(closeSheets, 100);
 
     </script>
     <script> //add &nbsp; before and after each innerHTML of item-value to add horizontal spacing, normal padding breaks alignment
@@ -664,6 +664,7 @@
                 entity.style.top = this.y + "px";
                 entity.style.left = this.x + "px";
                 entity.style.backgroundColor = this.color;
+                // entity.style.boxShadow = " 0 0 10px 10px" + this.color;
 
                 screencontainer.append(entity);
                 entities.push(entity);
@@ -728,7 +729,7 @@
 
                 let newPos = getNewPosition(tempObj);
 
-                if (tempObj.bounces == 2) {
+                if (tempObj.bounces == 4) {
                     tempNode.remove();
                     entitiesToTick.splice(i, 1);
                 } else {
@@ -739,6 +740,7 @@
                     }
 
                     if (tempObj.x > screen.width || tempObj.x < 0) {
+                        tempObj.bounces++;
                         tempObj.velx = -tempObj.velx;
                     }
                     tempNode.style.top = newPos.y + "px";
